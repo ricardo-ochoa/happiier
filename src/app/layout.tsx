@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Urbanist } from "next/font/google";
-import Head from 'next/head';
 import "./globals.css";
+import Header from "@/components/Header";
 
 const urbanist = Urbanist({ subsets: ["latin"] });
 
@@ -23,7 +23,10 @@ export default function RootLayout({
         <title>Happier Studio</title>
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body className={urbanist.className}>{children}</body>
+      <body className={urbanist.className}>
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }

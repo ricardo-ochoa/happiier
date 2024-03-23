@@ -21,7 +21,15 @@ export default function NavBar({
     <nav aria-label="Main navigation">
       <ul className="flex flex-col justify-between rounded-b-lg bg-slate-50 px-4 py-2 md:m-4 md:flex-row md:items-center md:rounded-xl">
         <div className="flex items-center justify-between">
-          <NameLogo name={settings.data.name} />
+          {/* <NameLogo name={settings.data.logo} /> */}
+          <Link
+            href="/"
+            aria-label="Home page"
+            className="text-xl font-extrabold tracking-tighter text-slate-900"
+          >
+            <img src="/Logo.svg" alt="Happier Studio" />
+          </Link>
+
           <button
             aria-expanded={open}
             aria-label="Open menu"
@@ -62,7 +70,7 @@ export default function NavBar({
                 >
                   <span
                     className={clsx(
-                      "absolute inset-0 z-0 h-full translate-y-12 rounded bg-yellow-300 transition-transform duration-300 ease-in-out group-hover:translate-y-0",
+                      "absolute inset-0 z-0 h-full translate-y-12 rounded bg-yellow-happiier transition-transform duration-300 ease-in-out group-hover:translate-y-0",
                       pathname.includes(asLink(link) as string)
                         ? "translate-y-6"
                         : "translate-y-18",
@@ -95,17 +103,17 @@ export default function NavBar({
   );
 }
 
-function NameLogo({ name }: { name: KeyTextField }) {
-  return (
-    <Link
-      href="/"
-      aria-label="Home page"
-      className="text-xl font-extrabold tracking-tighter text-slate-900"
-    >
-      {name}
-    </Link>
-  );
-}
+// function NameLogo({ name }: { name: KeyImage }) {
+//   return (
+//     <Link
+//       href="/"
+//       aria-label="Home page"
+//       className="text-xl font-extrabold tracking-tighter text-slate-900"
+//     >
+//       <img src="name" alt="Happier Studio" />
+//     </Link>
+//   );
+// }
 
 function DesktopMenu({
   settings,
@@ -130,9 +138,9 @@ function DesktopMenu({
             >
               <span
                 className={clsx(
-                  "absolute inset-0 z-0 h-full rounded bg-yellow-300 transition-transform  duration-300 ease-in-out group-hover:translate-y-0",
+                  "absolute inset-0 z-0 h-full rounded bg-yellow-happiier transition-transform  duration-300 ease-in-out group-hover:translate-y-0",
                   pathname.includes(asLink(link) as string)
-                    ? "translate-y-6"
+                    ? "translate-y-7"
                     : "translate-y-8",
                 )}
               />

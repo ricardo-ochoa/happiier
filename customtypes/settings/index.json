@@ -1,0 +1,106 @@
+{
+  "format": "custom",
+  "id": "settings",
+  "label": "Settings",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "logo": {
+        "type": "Image",
+        "config": {
+          "label": "logo",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "nav_item": {
+        "type": "Group",
+        "config": {
+          "label": "Nav Item",
+          "repeat": true,
+          "fields": {
+            "link": {
+              "type": "Link",
+              "config": {
+                "label": "Link",
+                "placeholder": "",
+                "select": null
+              }
+            },
+            "label": {
+              "type": "Text",
+              "config": {
+                "label": "Label",
+                "placeholder": ""
+              }
+            }
+          }
+        }
+      },
+      "cta_link": {
+        "type": "Link",
+        "config": {
+          "label": "Cta link",
+          "placeholder": "",
+          "select": null
+        }
+      },
+      "cta_label": {
+        "type": "Text",
+        "config": {
+          "label": "Cta label",
+          "placeholder": ""
+        }
+      },
+      "instagram": {
+        "type": "Link",
+        "config": {
+          "label": "instagram",
+          "placeholder": "",
+          "select": null
+        }
+      },
+      "linkedin": {
+        "type": "Link",
+        "config": {
+          "label": "Linkedin",
+          "placeholder": "",
+          "select": null
+        }
+      },
+      "whatsapp": {
+        "type": "Link",
+        "config": {
+          "label": "whatsapp",
+          "placeholder": "",
+          "select": null
+        }
+      }
+    },
+    "Seo and Metadata": {
+      "meta_tittle": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Tittle",
+          "placeholder": ""
+        }
+      },
+      "meta_description": {
+        "type": "Text",
+        "config": {
+          "label": "Meta description",
+          "placeholder": ""
+        }
+      },
+      "og_image": {
+        "type": "Image",
+        "config": {
+          "label": "og image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      }
+    }
+  }
+}

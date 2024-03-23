@@ -33,11 +33,17 @@ export function Shapes() {
 }
 
 function Geometries() {
+
   const geometries = [
+    // {
+    //   position: [1, -0.75, 4],
+    //   r: 0.3,
+    //   geometry: loader, // Gem
+    // },
     {
       position: [0, 0, 0],
       r: 0.3,
-      geometry: new THREE.IcosahedronGeometry(3), // Gem
+      geometry: new THREE.TorusGeometry( 3, 1, 10, 50 ), // Gem
     },
     {
       position: [1, -0.75, 4],
