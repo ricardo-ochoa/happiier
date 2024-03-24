@@ -3,6 +3,11 @@
 import dynamic from "next/dynamic";
 
 export const components = {
+  blog_post_index: dynamic(() => import("./ContentIndex")),
   equipo: dynamic(() => import("./Equipo")),
   hero: dynamic(() => import("./Hero")),
+  image: dynamic(() => import("./Image")),
+  main_only_text: dynamic(() => import("./MainOnlyText")),
+  services: dynamic(() => import("./Services")),
+  text_blok: dynamic(() => import("./TextBlock")),
 };

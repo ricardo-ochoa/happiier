@@ -50,6 +50,22 @@
             "constraint": {},
             "thumbnails": []
           }
+        },
+        "instagram": {
+          "type": "Link",
+          "config": {
+            "label": "instagram",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "linkedin": {
+          "type": "Link",
+          "config": {
+            "label": "Linkedin",
+            "placeholder": "",
+            "select": null
+          }
         }
       },
       "items": {}

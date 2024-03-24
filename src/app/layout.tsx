@@ -20,8 +20,8 @@ export default function RootLayout({
     //className="bg-slate-900 text-slate-100"
     >
       <head>
-        <title>Happier Studio</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Happier Studio ッ</title>
+        <link rel="icon" href="./favicon.ico" />
       </head>
       <body className={urbanist.className}>
         <Header />

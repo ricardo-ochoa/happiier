@@ -11,6 +11,7 @@ const config: Config = {
     extend: {
       colors: {
         'yellow-happiier': '#FFCB1D',
+        'black-happiier': '#000000',
       },
     },
   },
