@@ -56,7 +56,7 @@ const Equipo = ({ slice }: EquipoProps): JSX.Element => {
 
           {slice.primary.button_text && (
             <Button
-              linkField={slice.primary.button_link}
+              linkField={slice.primary.buntton_link}
               label={slice.primary.button_text}
             />
           )}
