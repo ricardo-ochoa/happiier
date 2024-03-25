@@ -1,0 +1,39 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"bold_text": {
+				"__TYPE__": "FieldContent",
+				"value": "native",
+				"type": "Text"
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Elit pariatur cupidatat mollit minim dolore dolor enim voluptate. Excepteur voluptate in nulla non esse anim anim ad enim. Dolor aute aute enim consequat dolore laborum veniam velit officia enim qui."
+						}
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"bg_color",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "#2008b5",
+							"type": "Color"
+						}
+					]
+				]
+			}
+		]
+	}
+]

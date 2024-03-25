@@ -1,0 +1,46 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "FieldContent",
+				"value": "here",
+				"type": "Text"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"service_name",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "immediately",
+							"type": "Text"
+						}
+					],
+					[
+						"service_color",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "#0cae02",
+							"type": "Color"
+						}
+					],
+					[
+						"service_link",
+						{
+							"__TYPE__": "LinkContent",
+							"value": {
+								"__TYPE__": "ExternalLink",
+								"url": "https://prismic.io"
+							}
+						}
+					]
+				]
+			}
+		]
+	}
+]
