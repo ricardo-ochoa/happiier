@@ -39,7 +39,10 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "blog_post_index": {
+            "text_block": {
+              "type": "SharedSlice"
+            },
+            "image_block": {
               "type": "SharedSlice"
             }
           }

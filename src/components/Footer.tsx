@@ -5,13 +5,13 @@ import { PrismicNextLink } from "@prismicio/next";
 import Link from "next/link";
 import Bounded from "@/components/Bounded";
 import { isFilled } from "@prismicio/client";
-import { FaGithub, FaLinkedin } from "react-icons/fa6";
+import { FaInstagram, FaLinkedin } from "react-icons/fa6";
 
 export default async function Footer() {
   const client = createClient();
   const settings = await client.getSingle("settings");
   return (
-    <Bounded as="footer" className="text-black-happiier bg-yellow-happiier">
+    <Bounded as="footer" className="text-black-happiier ">
       <div className="container mx-auto mt-20 flex flex-col items-center justify-between gap-6 py-8 sm:flex-row ">
         <div className="name flex flex-col items-center justify-center gap-x-4 gap-y-2 sm:flex-row sm:justify-self-start">
           <Link
@@ -39,7 +39,7 @@ export default async function Footer() {
                 <li>
                   <PrismicNextLink
                     className={clsx(
-                      "group relative block overflow-hidden  rounded px-3 py-1 text-base font-bold instagram transition-colors duration-150 hover:hover:text-slate-500",
+                      "group relative block overflow-hidden  rounded px-3 py-1 text-base font-bold instagram transition-colors duration-150 hover:text-yellow-happiier",
                     )}
                     field={link}
                   >
@@ -62,16 +62,16 @@ export default async function Footer() {
           {isFilled.link(settings.data.instagram) && (
             <PrismicNextLink
               field={settings.data.instagram}
-              className="p-2 text-2xl text-black-happiier transition-all duration-150 hover:scale-125 hover:text-yellow-400"
+              className="p-2 text-2xl text-black-happiier transition-all duration-150 hover:scale-125 hover:text-yellow-happiier"
               aria-label={settings.data.name + " on Instagram"}
             >
-              <FaGithub />
+              <FaInstagram />
             </PrismicNextLink>
           )}
-          {isFilled.link(settings.data.linkedin_link) && (
+          {isFilled.link(settings.data.linkedin) && (
             <PrismicNextLink
-              field={settings.data.linkedin_link}
-              className="p-2 text-2xl text-black-happiier transition-all duration-150 hover:scale-125 hover:text-yellow-400"
+              field={settings.data.linkedin}
+              className="p-2 text-2xl text-black-happiier transition-all duration-150 hover:scale-125  hover:text-yellow-happiier"
               aria-label={settings.data.name + " on LinkedIn"}
             >
               <FaLinkedin />
