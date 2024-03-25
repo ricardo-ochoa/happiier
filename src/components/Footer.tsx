@@ -29,7 +29,7 @@ export default async function Footer() {
             /
           </span>
           <p className=" text-sm text-black-happiier ">
-            © {new Date().getFullYear()} {settings.data.name}
+            © {new Date().getFullYear()}
           </p>
         </div>
         <nav className="navigation" aria-label="Footer Navigation">
@@ -63,7 +63,7 @@ export default async function Footer() {
             <PrismicNextLink
               field={settings.data.instagram}
               className="p-2 text-2xl text-black-happiier transition-all duration-150 hover:scale-125 hover:text-yellow-happiier"
-              aria-label={settings.data.name + " on Instagram"}
+              aria-label={"Happiier en Instagram"}
             >
               <FaInstagram />
             </PrismicNextLink>
@@ -72,7 +72,7 @@ export default async function Footer() {
             <PrismicNextLink
               field={settings.data.linkedin}
               className="p-2 text-2xl text-black-happiier transition-all duration-150 hover:scale-125  hover:text-yellow-happiier"
-              aria-label={settings.data.name + " on LinkedIn"}
+              aria-label={"Happiier en LinkedIn"}
             >
               <FaLinkedin />
             </PrismicNextLink>
