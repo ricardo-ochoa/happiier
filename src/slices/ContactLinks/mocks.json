@@ -1,0 +1,21 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"social_link": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://twitter.com"
+				}
+			},
+			"social_name": {
+				"__TYPE__": "FieldContent",
+				"value": "egg",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

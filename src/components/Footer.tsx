@@ -5,7 +5,7 @@ import { PrismicNextLink } from "@prismicio/next";
 import Link from "next/link";
 import Bounded from "@/components/Bounded";
 import { isFilled } from "@prismicio/client";
-import { FaInstagram, FaLinkedin } from "react-icons/fa6";
+import { FaInstagram, FaLinkedin, FaWhatsapp } from "react-icons/fa6";
 
 export default async function Footer() {
   const client = createClient();
@@ -18,9 +18,13 @@ export default async function Footer() {
             href="/"
             className="text-xl font-extrabold tracking-tighter text-black-happiier transition-colors duration-150 hover:text-black-happiier"
           >
-            <p>
-              Happiier Studio
-            </p>
+            <Link
+              href="/"
+              aria-label="Home page"
+              className="text-xl font-extrabold tracking-tighter text-slate-900"
+            >
+              <img src="/isotype.svg" alt="Happiier Studio" />
+            </Link>
           </Link>
           <span
             className="hidden text-5xl font-extralight leading-[0] text-black-happiier sm:inline"
@@ -75,6 +79,15 @@ export default async function Footer() {
               aria-label={"Happiier en LinkedIn"}
             >
               <FaLinkedin />
+            </PrismicNextLink>
+          )}
+          {isFilled.link(settings.data.whatsapp) && (
+            <PrismicNextLink
+              field={settings.data.whatsapp}
+              className="p-2 text-2xl text-black-happiier transition-all duration-150 hover:scale-125  hover:text-yellow-happiier"
+              aria-label={"Happiier en LinkedIn"}
+            >
+              <FaWhatsapp />
             </PrismicNextLink>
           )}
         </div>

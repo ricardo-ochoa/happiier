@@ -168,6 +168,7 @@ export type HomapageDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | ContactLinksSlice
   | TextBlockSlice
   | BlogPostIndexSlice
   | MainOnlyTextSlice
@@ -576,6 +577,61 @@ type BlogPostIndexSliceVariation = BlogPostIndexSliceDefault;
 export type BlogPostIndexSlice = prismic.SharedSlice<
   "blog_post_index",
   BlogPostIndexSliceVariation
+>;
+
+/**
+ * Primary content in *ContactLinks → Primary*
+ */
+export interface ContactLinksSliceDefaultPrimary {
+  /**
+   * Social name field in *ContactLinks → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_links.primary.social_name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  social_name: prismic.KeyTextField;
+
+  /**
+   * Social Link field in *ContactLinks → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_links.primary.social_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  social_link: prismic.LinkField;
+}
+
+/**
+ * Default variation for ContactLinks Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContactLinksSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ContactLinksSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ContactLinks*
+ */
+type ContactLinksSliceVariation = ContactLinksSliceDefault;
+
+/**
+ * ContactLinks Shared Slice
+ *
+ * - **API ID**: `contact_links`
+ * - **Description**: ContactLinks
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContactLinksSlice = prismic.SharedSlice<
+  "contact_links",
+  ContactLinksSliceVariation
 >;
 
 /**
@@ -1044,6 +1100,10 @@ declare module "@prismicio/client" {
       BlogPostIndexSliceDefaultPrimary,
       BlogPostIndexSliceVariation,
       BlogPostIndexSliceDefault,
+      ContactLinksSlice,
+      ContactLinksSliceDefaultPrimary,
+      ContactLinksSliceVariation,
+      ContactLinksSliceDefault,
       EquipoSlice,
       EquipoSliceDefaultPrimary,
       EquipoSliceVariation,

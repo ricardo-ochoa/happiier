@@ -1,0 +1,34 @@
+{
+  "id": "contact_links",
+  "type": "SharedSlice",
+  "name": "ContactLinks",
+  "description": "ContactLinks",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "social_name": {
+          "type": "Text",
+          "config": {
+            "label": "Social name",
+            "placeholder": ""
+          }
+        },
+        "social_link": {
+          "type": "Link",
+          "config": {
+            "label": "Social Link",
+            "placeholder": "",
+            "select": null
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

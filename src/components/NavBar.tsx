@@ -16,19 +16,32 @@ export default function NavBar({
 }) {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
-
   return (
     <nav aria-label="Main navigation">
       <ul className="flex flex-col justify-between rounded-b-lg bg-slate-50 px-4 py-2 md:m-4 md:flex-row md:items-center md:rounded-xl">
         <div className="flex items-center justify-between">
           {/* <NameLogo name={settings.data.logo} /> */}
-          <Link
-            href="/"
-            aria-label="Home page"
-            className="text-xl font-extrabold tracking-tighter text-slate-900"
-          >
-            <img src="/Logo.svg" alt="Happier Studio" />
-          </Link>
+
+          {
+            (settings.data.logo.url) ? (
+              <Link
+                href="/"
+                aria-label="Home page"
+                className="text-xl font-extrabold tracking-tighter text-slate-900"
+              >
+                <img src={settings.data.logo.url} alt="Happiier Studio" />
+              </Link>
+
+            ) : (
+              <Link
+                href="/"
+                aria-label="Home page"
+                className="text-xl font-extrabold tracking-tighter text-slate-900"
+              >
+                <img src="/Logo.svg" alt="Happiier Studio" />
+              </Link>
+            )
+          }
 
           <button
             aria-expanded={open}
