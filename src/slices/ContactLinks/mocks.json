@@ -3,16 +3,81 @@
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
 		"primary": {
-			"social_link": {
+			"phone_link": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://prismic.io"
+				}
+			},
+			"phone_title": {
+				"__TYPE__": "FieldContent",
+				"value": "whose",
+				"type": "Text"
+			},
+			"whatsapp": {
+				"__TYPE__": "FieldContent",
+				"value": "enter",
+				"type": "Text"
+			},
+			"whatsapp_link": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://prismic.io"
+				}
+			},
+			"facebook": {
+				"__TYPE__": "FieldContent",
+				"value": "create",
+				"type": "Text"
+			},
+			"facebook_link": {
 				"__TYPE__": "LinkContent",
 				"value": {
 					"__TYPE__": "ExternalLink",
 					"url": "http://twitter.com"
 				}
 			},
-			"social_name": {
+			"instagram": {
 				"__TYPE__": "FieldContent",
-				"value": "egg",
+				"value": "bend",
+				"type": "Text"
+			},
+			"instagram_link": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://slicemachine.dev"
+				}
+			},
+			"linkedin": {
+				"__TYPE__": "FieldContent",
+				"value": "imagine",
+				"type": "Text"
+			},
+			"linkedin_link": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://slicemachine.dev"
+				}
+			},
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "substance",
+				"type": "Text"
+			},
+			"mail_link": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://google.com"
+				}
+			},
+			"mail": {
+				"__TYPE__": "FieldContent",
+				"value": "escape",
 				"type": "Text"
 			}
 		},

@@ -10,6 +10,14 @@ import { FaInstagram, FaLinkedin, FaWhatsapp } from "react-icons/fa6";
 export default async function Footer() {
   const client = createClient();
   const settings = await client.getSingle("settings");
+
+  // const [currentPath, setCurrentPath] = useState(window.location.pathname)
+  // const handlePathChange = () => {
+  //   setCurrentPath(window.location.pathname);
+  // };
+  // window.addEventListener('popstate', handlePathChange);
+  // const isContactPage = currentPath === '/contacto';
+
   return (
     <Bounded as="footer" className="text-black-happiier ">
       <div className="container mx-auto mt-20 flex flex-col items-center justify-between gap-6 py-8 sm:flex-row ">
@@ -85,7 +93,7 @@ export default async function Footer() {
             <PrismicNextLink
               field={settings.data.whatsapp}
               className="p-2 text-2xl text-black-happiier transition-all duration-150 hover:scale-125  hover:text-yellow-happiier"
-              aria-label={"Happiier en LinkedIn"}
+              aria-label={"Happiier en WhatsApp"}
             >
               <FaWhatsapp />
             </PrismicNextLink>

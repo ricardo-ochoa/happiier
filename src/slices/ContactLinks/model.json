@@ -12,19 +12,103 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
-        "social_name": {
+        "title": {
           "type": "Text",
           "config": {
-            "label": "Social name",
+            "label": "Title",
             "placeholder": ""
           }
         },
-        "social_link": {
+        "phone_title": {
+          "type": "Text",
+          "config": {
+            "label": "phone title",
+            "placeholder": ""
+          }
+        },
+        "phone_link": {
           "type": "Link",
           "config": {
-            "label": "Social Link",
+            "label": "phone link",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "select": null
+          }
+        },
+        "whatsapp": {
+          "type": "Text",
+          "config": {
+            "label": "Whatsapp",
+            "placeholder": ""
+          }
+        },
+        "whatsapp_link": {
+          "type": "Link",
+          "config": {
+            "label": "Whatsapp link",
             "placeholder": "",
             "select": null
+          }
+        },
+        "facebook": {
+          "type": "Text",
+          "config": {
+            "label": "Facebook",
+            "placeholder": ""
+          }
+        },
+        "facebook_link": {
+          "type": "Link",
+          "config": {
+            "label": "Facebook Link",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "instagram": {
+          "type": "Text",
+          "config": {
+            "label": "Instagram",
+            "placeholder": ""
+          }
+        },
+        "instagram_link": {
+          "type": "Link",
+          "config": {
+            "label": "Instagram link",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "linkedin": {
+          "type": "Text",
+          "config": {
+            "label": "Linkedin",
+            "placeholder": ""
+          }
+        },
+        "linkedin_link": {
+          "type": "Link",
+          "config": {
+            "label": "Linkedin Link",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "mail_link": {
+          "type": "Link",
+          "config": {
+            "label": "Mail Link",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "select": null
+          }
+        },
+        "mail": {
+          "type": "Text",
+          "config": {
+            "label": "mail",
+            "placeholder": ""
           }
         }
       },

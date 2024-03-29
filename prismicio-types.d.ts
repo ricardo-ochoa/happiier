@@ -584,24 +584,134 @@ export type BlogPostIndexSlice = prismic.SharedSlice<
  */
 export interface ContactLinksSliceDefaultPrimary {
   /**
-   * Social name field in *ContactLinks → Primary*
+   * Title field in *ContactLinks → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: contact_links.primary.social_name
+   * - **API ID Path**: contact_links.primary.title
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  social_name: prismic.KeyTextField;
+  title: prismic.KeyTextField;
 
   /**
-   * Social Link field in *ContactLinks → Primary*
+   * phone title field in *ContactLinks → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_links.primary.phone_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  phone_title: prismic.KeyTextField;
+
+  /**
+   * phone link field in *ContactLinks → Primary*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
-   * - **API ID Path**: contact_links.primary.social_link
+   * - **API ID Path**: contact_links.primary.phone_link
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  social_link: prismic.LinkField;
+  phone_link: prismic.LinkField;
+
+  /**
+   * Whatsapp field in *ContactLinks → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_links.primary.whatsapp
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  whatsapp: prismic.KeyTextField;
+
+  /**
+   * Whatsapp link field in *ContactLinks → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_links.primary.whatsapp_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  whatsapp_link: prismic.LinkField;
+
+  /**
+   * Facebook field in *ContactLinks → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_links.primary.facebook
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  facebook: prismic.KeyTextField;
+
+  /**
+   * Facebook Link field in *ContactLinks → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_links.primary.facebook_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  facebook_link: prismic.LinkField;
+
+  /**
+   * Instagram field in *ContactLinks → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_links.primary.instagram
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  instagram: prismic.KeyTextField;
+
+  /**
+   * Instagram link field in *ContactLinks → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_links.primary.instagram_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  instagram_link: prismic.LinkField;
+
+  /**
+   * Linkedin field in *ContactLinks → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_links.primary.linkedin
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  linkedin: prismic.KeyTextField;
+
+  /**
+   * Linkedin Link field in *ContactLinks → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_links.primary.linkedin_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  linkedin_link: prismic.LinkField;
+
+  /**
+   * Mail Link field in *ContactLinks → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_links.primary.mail_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  mail_link: prismic.LinkField;
+
+  /**
+   * mail field in *ContactLinks → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_links.primary.mail
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  mail: prismic.KeyTextField;
 }
 
 /**
