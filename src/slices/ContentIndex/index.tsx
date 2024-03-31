@@ -1,7 +1,6 @@
 import { Content, isFilled } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import { createClient } from "@/prismicio";
-import ContentList from "./ContentList";
 import ContentListRegular from "./ContentListRegular";
 import Bounded from "@/components/Bounded";
 import Heading from "@/components/Heading";
