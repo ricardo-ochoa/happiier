@@ -102,7 +102,10 @@ export type BlogPostDocument<Lang extends string = string> =
     Lang
   >;
 
-type HomapageDocumentDataSlicesSlice = MainOnlyTextSlice | HeroSlice;
+type HomapageDocumentDataSlicesSlice =
+  | BlogPostIndexSlice
+  | MainOnlyTextSlice
+  | HeroSlice;
 
 /**
  * Content for Homapage documents
@@ -547,6 +550,16 @@ export interface BlogPostIndexSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   fallback_item_image: prismic.ImageField<never>;
+
+  /**
+   * background color field in *ContentIndex → Primary*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_post_index.primary.background_color
+   * - **Documentation**: https://prismic.io/docs/field#color
+   */
+  background_color: prismic.ColorField;
 }
 
 /**
@@ -1056,6 +1069,81 @@ export type MainOnlyTextSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *Project → Primary*
+ */
+export interface ProjectSliceDefaultPrimary {
+  /**
+   * image field in *Project → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Title field in *Project → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * description field in *Project → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Full Text field in *Project → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.primary.full_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  full_text: prismic.RichTextField;
+}
+
+/**
+ * Default variation for Project Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProjectSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ProjectSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Project*
+ */
+type ProjectSliceVariation = ProjectSliceDefault;
+
+/**
+ * Project Shared Slice
+ *
+ * - **API ID**: `project`
+ * - **Description**: Project
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProjectSlice = prismic.SharedSlice<
+  "project",
+  ProjectSliceVariation
+>;
+
+/**
  * Primary content in *Services → Primary*
  */
 export interface ServicesSliceDefaultPrimary {
@@ -1235,6 +1323,10 @@ declare module "@prismicio/client" {
       MainOnlyTextSliceDefaultItem,
       MainOnlyTextSliceVariation,
       MainOnlyTextSliceDefault,
+      ProjectSlice,
+      ProjectSliceDefaultPrimary,
+      ProjectSliceVariation,
+      ProjectSliceDefault,
       ServicesSlice,
       ServicesSliceDefaultPrimary,
       ServicesSliceDefaultItem,

@@ -5,7 +5,7 @@ const video = () => {
     <div className="row-span-1">
         <div>
           <div className="flex items-center justify-center md:hidden -z-10">
-            <img src="https://freight.cargo.site/w/500/h/1000/q/75/i/D1576137206073396355931786183597/Showreal_M.gif" alt="Happier Studio" />
+            <img src="https://freight.cargo.site/w/500/h/1000/q/75/i/D1576137206073396355931786183597/Showreal_M.gif" alt="Happiier Studio" />
           </div>
           <div className="items-center justify-center hidden md:flex">
             <video width="80%" autoPlay loop muted>

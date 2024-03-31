@@ -6,6 +6,7 @@ import { Shapes } from "@/slices/Hero/Shapes";
 import Video from "@/slices/Hero/Video";
 import Bounded from "@/components/Bounded";
 import gsap from "gsap";
+import Project from "../Project";
 
 /**
  * Props for `Hero`.
@@ -95,8 +96,6 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
             </span>
           </h1>
         </div>
-
-
       </section >
       <Video />
     </Bounded>

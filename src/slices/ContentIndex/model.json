@@ -54,6 +54,13 @@
             "constraint": {},
             "thumbnails": []
           }
+        },
+        "background_color": {
+          "type": "Color",
+          "config": {
+            "label": "background color",
+            "placeholder": ""
+          }
         }
       },
       "items": {}
