@@ -23,11 +23,10 @@ export default function NavBar({
           {/* <NameLogo name={settings.data.logo} /> */}
 
           {
-            (settings.data.logo.url) ? (
+            !(settings.data.logo.url) ? (
               <Link
                 href="/"
                 aria-label="Home page"
-                className="text-xl font-extrabold tracking-tighter text-slate-900"
               >
                 <img src={settings.data.logo.url} alt="Happiier Studio" />
               </Link>

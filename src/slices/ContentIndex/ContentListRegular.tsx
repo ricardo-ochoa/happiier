@@ -19,7 +19,7 @@ export default function ContentList({
   return (
     <>
       <ul
-        className="grid grid-cols-1 md:grid-cols-3 gap-4"
+        className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-0"
       >
         {items.map((post, index) => (
           <li key={index}>
@@ -39,7 +39,6 @@ export default function ContentList({
           </li>
         ))}
       </ul>
-
     </>
   );
 }

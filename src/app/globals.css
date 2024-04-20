@@ -11,3 +11,24 @@
     color: rgb(0, 0, 0);
     background: #FFCB1D;
   }
+  
+  @layer utilities {
+      @variants responsive {
+          .masonry {
+              column-gap: 1.5em;
+              column-count: 1;
+          }
+          .masonry-sm {
+              column-gap: 1.5em;
+              column-count: 2;
+          }
+          .masonry-md {
+              column-gap: 1.5em;
+              column-count: 2;
+          }
+          .break-inside {
+              break-inside: avoid;
+          }
+  
+      }
+  }

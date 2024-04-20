@@ -237,7 +237,10 @@ interface PageDocumentData {
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
-type ProjectDocumentDataSlicesSlice = TextBlockSlice | ImageBlockSlice;
+type ProjectDocumentDataSlicesSlice =
+  | ImageGallerySlice
+  | TextBlockSlice
+  | ImageBlockSlice;
 
 /**
  * Content for project documents
@@ -275,6 +278,19 @@ interface ProjectDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   hover_image: prismic.ImageField<never>;
+
+  /**
+   * category field in *project*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.category
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  category: prismic.SelectField<
+    "ESTRATEGIA" | "BRANDING" | "EXPERIENCE" | "SOCIAL MEDIA"
+  >;
 
   /**
    * Slice Zone field in *project*
@@ -511,6 +527,16 @@ export interface BlogPostIndexSliceDefaultPrimary {
   heading: prismic.KeyTextField;
 
   /**
+   * hashtag field in *ContentIndex → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_post_index.primary.hashtag
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  hashtag: prismic.KeyTextField;
+
+  /**
    * Content Type field in *ContentIndex → Primary*
    *
    * - **Field Type**: Select
@@ -520,6 +546,18 @@ export interface BlogPostIndexSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#select
    */
   content_type: prismic.SelectField<"Blog" | "Projects", "filled">;
+
+  /**
+   * Content Type Section field in *ContentIndex → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_post_index.primary.content_type_section
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  content_type_section: prismic.SelectField<
+    "ESTRATEGIA" | "BRANDING" | "EXPERIENCE" | "SOCIAL MEDIA"
+  >;
 
   /**
    * Description field in *ContentIndex → Primary*
@@ -999,6 +1037,51 @@ export type ImageBlockSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *ImageGallery → Items*
+ */
+export interface ImageGallerySliceDefaultItem {
+  /**
+   * image field in *ImageGallery → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_gallery.items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for ImageGallery Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageGallerySliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  Simplify<ImageGallerySliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *ImageGallery*
+ */
+type ImageGallerySliceVariation = ImageGallerySliceDefault;
+
+/**
+ * ImageGallery Shared Slice
+ *
+ * - **API ID**: `image_gallery`
+ * - **Description**: ImageGallery
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageGallerySlice = prismic.SharedSlice<
+  "image_gallery",
+  ImageGallerySliceVariation
+>;
+
+/**
  * Primary content in *MainOnlyText → Primary*
  */
 export interface MainOnlyTextSliceDefaultPrimary {
@@ -1318,6 +1401,10 @@ declare module "@prismicio/client" {
       ImageBlockSliceDefaultPrimary,
       ImageBlockSliceVariation,
       ImageBlockSliceDefault,
+      ImageGallerySlice,
+      ImageGallerySliceDefaultItem,
+      ImageGallerySliceVariation,
+      ImageGallerySliceDefault,
       MainOnlyTextSlice,
       MainOnlyTextSliceDefaultPrimary,
       MainOnlyTextSliceDefaultItem,

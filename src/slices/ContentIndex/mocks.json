@@ -56,8 +56,23 @@
 				"__TYPE__": "FieldContent",
 				"value": "#72c919",
 				"type": "Color"
+			},
+			"hashtag": {
+				"__TYPE__": "FieldContent",
+				"value": "particular",
+				"type": "Text"
+			},
+			"content_type_section": {
+				"__TYPE__": "FieldContent",
+				"value": "ESTRATEGIA",
+				"type": "Select"
 			}
 		},
-		"items": []
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
 	}
 ]
