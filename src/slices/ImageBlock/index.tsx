@@ -21,8 +21,8 @@ const Image = ({ slice }: ImageProps): JSX.Element => {
         <img
           className="my-10 md:my-14 lg:my-16"
           key={index}
-          src={image.url}
-          alt={image.alt}
+          src={image.url || "Image"}
+          alt={image.alt || "Image"}
         />
       ))}
     </div>

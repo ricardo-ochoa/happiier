@@ -12,6 +12,7 @@ export const components = {
   image_gallery: dynamic(() => import("./ImageGallery")),
   main_only_text: dynamic(() => import("./MainOnlyText")),
   project: dynamic(() => import("./Project")),
+  service_list: dynamic(() => import("./ServiceList")),
   services: dynamic(() => import("./Services")),
   text_block: dynamic(() => import("./TextBlock")),
 };

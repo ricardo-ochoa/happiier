@@ -171,6 +171,7 @@ export type HomapageDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | ServiceListSlice
   | ContactLinksSlice
   | TextBlockSlice
   | BlogPostIndexSlice
@@ -820,6 +821,16 @@ export interface EquipoSliceDefaultPrimary {
   description: prismic.RichTextField;
 
   /**
+   * Other description field in *Equipo → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: equipo.primary.other_description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  other_description: prismic.RichTextField;
+
+  /**
    * Button text field in *Equipo → Primary*
    *
    * - **Field Type**: Text
@@ -1119,6 +1130,16 @@ export interface MainOnlyTextSliceDefaultItem {
    * - **Documentation**: https://prismic.io/docs/field#color
    */
   bg_color: prismic.ColorField;
+
+  /**
+   * description field in *MainOnlyText → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: main_only_text.items[].description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
 }
 
 /**
@@ -1224,6 +1245,61 @@ type ProjectSliceVariation = ProjectSliceDefault;
 export type ProjectSlice = prismic.SharedSlice<
   "project",
   ProjectSliceVariation
+>;
+
+/**
+ * Primary content in *ServiceList → Items*
+ */
+export interface ServiceListSliceDefaultItem {
+  /**
+   * Service Title field in *ServiceList → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_list.items[].service_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  service_title: prismic.KeyTextField;
+
+  /**
+   * service description field in *ServiceList → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: service_list.items[].service_description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  service_description: prismic.RichTextField;
+}
+
+/**
+ * Default variation for ServiceList Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ServiceListSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  Simplify<ServiceListSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *ServiceList*
+ */
+type ServiceListSliceVariation = ServiceListSliceDefault;
+
+/**
+ * ServiceList Shared Slice
+ *
+ * - **API ID**: `service_list`
+ * - **Description**: ServiceList
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ServiceListSlice = prismic.SharedSlice<
+  "service_list",
+  ServiceListSliceVariation
 >;
 
 /**
@@ -1414,6 +1490,10 @@ declare module "@prismicio/client" {
       ProjectSliceDefaultPrimary,
       ProjectSliceVariation,
       ProjectSliceDefault,
+      ServiceListSlice,
+      ServiceListSliceDefaultItem,
+      ServiceListSliceVariation,
+      ServiceListSliceDefault,
       ServicesSlice,
       ServicesSliceDefaultPrimary,
       ServicesSliceDefaultItem,
