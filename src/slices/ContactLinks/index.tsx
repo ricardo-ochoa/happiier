@@ -1,7 +1,7 @@
 import { Content } from "@prismicio/client";
 import { PrismicNextLink } from "@prismicio/next";
 import Bounded from "@/components/Bounded";
-import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
+import { SliceComponentProps } from "@prismicio/react";
 import { isFilled } from "@prismicio/client";
 import { FaInstagram, FaLinkedin, FaWhatsapp, FaFacebook } from "react-icons/fa6";
 

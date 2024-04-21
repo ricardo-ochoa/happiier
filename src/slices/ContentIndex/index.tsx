@@ -1,5 +1,5 @@
 import { Content, isFilled } from "@prismicio/client";
-import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
+import { SliceComponentProps } from "@prismicio/react";
 import { createClient } from "@/prismicio";
 import ContentListRegular from "./ContentListRegular";
 // import ContentList from "./ContentList";

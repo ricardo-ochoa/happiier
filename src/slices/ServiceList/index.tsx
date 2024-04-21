@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { Content } from "@prismicio/client";
-import { SliceComponentProps } from "@prismicio/react";
+import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import { Accordion, AccordionDetails, AccordionSummary, Divider } from "@mui/material";
 import AddIcon from '@mui/icons-material/Add';
 import HorizontalRuleIcon from '@mui/icons-material/HorizontalRule';
@@ -25,6 +25,7 @@ const ServiceList = ({ slice }: ServiceListProps): JSX.Element => {
   };
 
   const services = slice?.items
+  console.log(slice?.items)
 
   return (
     <section
@@ -47,9 +48,7 @@ const ServiceList = ({ slice }: ServiceListProps): JSX.Element => {
             </AccordionSummary>
             <AccordionDetails>
               {service.service_description && service.service_description[0] && (
-                <Typography fontSize={'20px'}>
-                  {service?.service_description[0]?.text}
-                </Typography>
+                <PrismicRichText field={service.service_description} />
               )}
             </AccordionDetails>
           </Accordion>

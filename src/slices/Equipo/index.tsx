@@ -19,8 +19,6 @@ export type EquipoProps = SliceComponentProps<Content.EquipoSlice>;
 
 const Equipo = ({ slice }: EquipoProps): JSX.Element => {
 
-  const mainTitleSection = slice.primary.heading === 'The Happier Team'
-
   return (
     <div className=" bg-yellow-happiier">
       <Bounded
