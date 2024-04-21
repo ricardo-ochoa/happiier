@@ -25,7 +25,7 @@ const ServiceList = ({ slice }: ServiceListProps): JSX.Element => {
   };
 
   const services = slice?.items
-  console.log(slice?.items)
+  console.log(slice?.items[0].service_description)
 
   return (
     <section
@@ -44,12 +44,12 @@ const ServiceList = ({ slice }: ServiceListProps): JSX.Element => {
             <AccordionSummary
               expandIcon={expanded === service.service_title ? <HorizontalRuleIcon /> : <AddIcon />}
             >
-              <Typography fontSize={'25px'} fontWeight={500}>{service.service_title}</Typography>
+              <Typography fontSize={'30px'} fontWeight={500}>{service.service_title}</Typography>
             </AccordionSummary>
             <AccordionDetails>
-              {service.service_description && service.service_description[0] && (
+              <span style={{ fontSize: 'x-large' }}>
                 <PrismicRichText field={service.service_description} />
-              )}
+              </span>
             </AccordionDetails>
           </Accordion>
         ))}
