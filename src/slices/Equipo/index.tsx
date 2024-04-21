@@ -29,20 +29,11 @@ const Equipo = ({ slice }: EquipoProps): JSX.Element => {
       >
         <div className="grid gap-x-8 gap-y-6 md:grid-cols-[2fr,1fr]">
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="col-start-1 md:col-start-1">
-              <Heading size="xl" className="text-black-happiier">
-                {slice.primary.heading}
-              </Heading>
-            </div>
-            {(slice.primary.heading === 'Viviana') && (
-              <div className="col-start-1  sm:col-start-1 lg:col-start-1 relative">
-                <img src="/vivisig.svg" alt="Viviana Happiier Studio" className="w-full md:w-3/4 lg:w-2/4 xl:w-auto mt-[-20px]" />
-              </div>
-            )}
+          <div className="col-start-1 md:col-start-1">
+            <Heading size="xl" className="text-black-happiier">
+              {slice.primary.heading}
+            </Heading>
           </div>
-
-
 
           <div className="prose prose-xl prose-slate col-start-1">
             {

@@ -171,6 +171,7 @@ export type HomapageDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | PersonalInfoSlice
   | ServiceListSlice
   | ContactLinksSlice
   | TextBlockSlice
@@ -1173,6 +1174,141 @@ export type MainOnlyTextSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *PersonalInfo → Primary*
+ */
+export interface PersonalInfoSliceDefaultPrimary {
+  /**
+   * Heading field in *PersonalInfo → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: personal_info.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Last Name Image field in *PersonalInfo → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: personal_info.primary.last_name_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  last_name_image: prismic.ImageField<never>;
+
+  /**
+   * PersonalType field in *PersonalInfo → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: personal_info.primary.personaltype
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  personaltype: prismic.SelectField<"Happiier" | "Partner">;
+
+  /**
+   * Avatar field in *PersonalInfo → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: personal_info.primary.avatar
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  avatar: prismic.ImageField<never>;
+
+  /**
+   * Portfolio field in *PersonalInfo → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: personal_info.primary.portfolio
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  portfolio: prismic.LinkField;
+
+  /**
+   * Instagram field in *PersonalInfo → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: personal_info.primary.instagram
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  instagram: prismic.LinkField;
+
+  /**
+   * LinkedIn field in *PersonalInfo → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: personal_info.primary.linkedin
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  linkedin: prismic.LinkField;
+
+  /**
+   * xLink field in *PersonalInfo → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: personal_info.primary.xlink
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  xlink: prismic.LinkField;
+
+  /**
+   * Threads field in *PersonalInfo → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: personal_info.primary.threads
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  threads: prismic.LinkField;
+
+  /**
+   * Facebook field in *PersonalInfo → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: personal_info.primary.facebook
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  facebook: prismic.LinkField;
+}
+
+/**
+ * Default variation for PersonalInfo Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PersonalInfoSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<PersonalInfoSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *PersonalInfo*
+ */
+type PersonalInfoSliceVariation = PersonalInfoSliceDefault;
+
+/**
+ * PersonalInfo Shared Slice
+ *
+ * - **API ID**: `personal_info`
+ * - **Description**: PersonalInfo
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PersonalInfoSlice = prismic.SharedSlice<
+  "personal_info",
+  PersonalInfoSliceVariation
+>;
+
+/**
  * Primary content in *Project → Primary*
  */
 export interface ProjectSliceDefaultPrimary {
@@ -1486,6 +1622,10 @@ declare module "@prismicio/client" {
       MainOnlyTextSliceDefaultItem,
       MainOnlyTextSliceVariation,
       MainOnlyTextSliceDefault,
+      PersonalInfoSlice,
+      PersonalInfoSliceDefaultPrimary,
+      PersonalInfoSliceVariation,
+      PersonalInfoSliceDefault,
       ProjectSlice,
       ProjectSliceDefaultPrimary,
       ProjectSliceVariation,
