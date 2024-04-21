@@ -33,8 +33,8 @@ const ImageGallery = ({ slice }: ImageGalleryProps): JSX.Element => {
         {images.map((img, index) => (
           <div key={index}>
             <img
-              src={img.url}
-              alt={img.alt}
+              src={img.url || "Image"}
+              alt={img.alt || "Image"}
               className="rounded-lg p-4 break-inside"
             />
           </div>
