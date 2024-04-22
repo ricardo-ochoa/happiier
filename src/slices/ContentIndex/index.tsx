@@ -36,7 +36,7 @@ const BlogPostIndex = async ({
         <Heading size="sm" className="mb-8">
           {slice.primary.heading}
         </Heading>
-        <Heading size="xl" className="mb-8">
+        <Heading className="mb-8">
           {slice.primary.hashtag}
         </Heading>
         {isFilled.richText(slice.primary.description) && (
