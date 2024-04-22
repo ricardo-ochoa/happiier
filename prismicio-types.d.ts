@@ -507,12 +507,78 @@ export type SettingsDocument<Lang extends string = string> =
     Lang
   >;
 
+type TeamMemberDocumentDataSlicesSlice = PersonalInfoSlice;
+
+/**
+ * Content for Team Member documents
+ */
+interface TeamMemberDocumentData {
+  /**
+   * Slice Zone field in *Team Member*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team_member.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<TeamMemberDocumentDataSlicesSlice> /**
+   * Meta Description field in *Team Member*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: team_member.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Team Member*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team_member.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+
+  /**
+   * Meta Title field in *Team Member*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: team_member.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField;
+}
+
+/**
+ * Team Member document from Prismic
+ *
+ * - **API ID**: `team_member`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type TeamMemberDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<TeamMemberDocumentData>,
+    "team_member",
+    Lang
+  >;
+
 export type AllDocumentTypes =
   | BlogPostDocument
   | HomapageDocument
   | PageDocument
   | ProjectDocument
-  | SettingsDocument;
+  | SettingsDocument
+  | TeamMemberDocument;
 
 /**
  * Primary content in *ContentIndex → Primary*
@@ -1588,6 +1654,9 @@ declare module "@prismicio/client" {
       SettingsDocument,
       SettingsDocumentData,
       SettingsDocumentDataNavItemItem,
+      TeamMemberDocument,
+      TeamMemberDocumentData,
+      TeamMemberDocumentDataSlicesSlice,
       AllDocumentTypes,
       BlogPostIndexSlice,
       BlogPostIndexSliceDefaultPrimary,

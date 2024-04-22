@@ -17,7 +17,6 @@ export type PersonalInfoProps = SliceComponentProps<Content.PersonalInfoSlice>;
  * Component for "PersonalInfo" Slices.
  */
 const PersonalInfo = ({ slice }: PersonalInfoProps): JSX.Element => {
-  console.log(slice)
 
   return (
     <div className=" bg-yellow-happiier ">

@@ -25,7 +25,6 @@ const ServiceList = ({ slice }: ServiceListProps): JSX.Element => {
   };
 
   const services = slice?.items
-  console.log(slice?.items[0].service_description)
 
   return (
     <section
