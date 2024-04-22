@@ -7,6 +7,7 @@ import { isFilled } from "@prismicio/client";
 import { FaInstagram, FaLinkedin, FaWhatsapp, FaFacebook } from "react-icons/fa6";
 import { POST } from "@/app/api/send/route";
 import { Typography } from "@mui/material";
+import ContactFormData from "@/interface/contactFormData";
 
 /**
  * Props for `ContactLinks`.
@@ -24,15 +25,23 @@ const ContactLinks = ({ slice }: ContactLinksProps): JSX.Element => {
     // Obtiene los valores de los campos del formulario
     const formData = new FormData(event.currentTarget);
     const firstName = formData.get('firstName');
-    const number = formData.get('number');
-    const mail = formData.get('mail');
+    const number = formData.get('phoneNumber');
+    const mail = formData.get('email');
     const message = formData.get('message');
 
     // Verifica si los valores son distintos de null antes de continuar
     if (firstName !== null && number !== null && mail !== null && message !== null) {
+      // Construye el objeto ContactFormData
+      const formData: ContactFormData = {
+        firstName: firstName as string,
+        number: number as string,
+        mail: mail as string,
+        message: message as string
+      };
+
       // Llama a la función POST para enviar el correo electrónico
-      const response = await POST({ firstName: firstName as string, number: number as string, mail: mail as string, message: message as string });
-      console.log(response); // Puedes hacer algo con la respuesta, como mostrar un mensaje al usuario
+      // const response = await POST(formData);
+      // console.log(response); // Puedes hacer algo con la respuesta, como mostrar un mensaje al usuario
     }
   }
 
