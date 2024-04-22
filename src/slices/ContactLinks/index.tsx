@@ -6,6 +6,7 @@ import { SliceComponentProps } from "@prismicio/react";
 import { isFilled } from "@prismicio/client";
 import { FaInstagram, FaLinkedin, FaWhatsapp, FaFacebook } from "react-icons/fa6";
 import { POST } from "@/app/api/send/route";
+import { Typography } from "@mui/material";
 
 /**
  * Props for `ContactLinks`.
@@ -119,7 +120,10 @@ const ContactLinks = ({ slice }: ContactLinksProps): JSX.Element => {
         </div>
 
         <div className="w-full">
-          <form onSubmit={handleSubmit} style={{ marginTop: '50px' }}>
+          <Typography style={{ fontSize: '30px', fontWeight: 500, marginTop: '50px', marginBottom: '10px' }}>
+            Contáctanos:
+          </Typography>
+          <form onSubmit={handleSubmit}>
             <div className="mb-4">
               <label htmlFor="firstName" className="block text-sm font-medium text-gray-700">Nombre:</label>
               <input type="text" name="firstName" id="firstName" required
