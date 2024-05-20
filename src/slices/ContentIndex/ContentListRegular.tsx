@@ -1,5 +1,7 @@
+"use client";
 import { PrismicNextImage } from "@prismicio/next";
 import { Content } from "@prismicio/client";
+import { useState } from "react";
 
 type ContentListProps = {
   items: Content.BlogPostDocument[] | Content.ProjectDocument[];
@@ -15,6 +17,7 @@ export default function ContentList({
   viewMoreText = "Ver más",
 }: ContentListProps) {
   const urlPrefix = contentType === "Blog" ? "/blog" : "/project";
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
     <>
@@ -27,9 +30,11 @@ export default function ContentList({
               href={`${urlPrefix}/${post.uid}`}
               className=""
               aria-label={post.data.title || ""}
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
             >
               <PrismicNextImage
-                field={post.data.hover_image}
+                field={hoveredIndex === index ? post.data.hover_image : post.data.image}
               />
 
               <div className="flex flex-col">
