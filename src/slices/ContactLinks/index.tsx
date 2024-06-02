@@ -5,7 +5,6 @@ import Bounded from "@/components/Bounded";
 import { SliceComponentProps } from "@prismicio/react";
 import { isFilled } from "@prismicio/client";
 import { FaInstagram, FaLinkedin, FaWhatsapp, FaFacebook } from "react-icons/fa6";
-import { POST } from "@/app/api/send/route";
 import { Typography } from "@mui/material";
 import ContactFormData from "@/interface/contactFormData";
 
@@ -25,23 +24,40 @@ const ContactLinks = ({ slice }: ContactLinksProps): JSX.Element => {
     // Obtiene los valores de los campos del formulario
     const formData = new FormData(event.currentTarget);
     const firstName = formData.get('firstName');
-    const number = formData.get('phoneNumber');
-    const mail = formData.get('email');
+    const number = formData.get('number');
+    const mail = formData.get('mail');
     const message = formData.get('message');
 
     // Verifica si los valores son distintos de null antes de continuar
-    if (firstName !== null && number !== null && mail !== null && message !== null) {
+    if (firstName && number && mail && message) {
       // Construye el objeto ContactFormData
-      const formData: ContactFormData = {
-        firstName: firstName as string,
-        number: number as string,
-        mail: mail as string,
-        message: message as string
+      const formDataObj: ContactFormData = {
+        firstName: firstName.toString(),
+        number: number.toString(),
+        mail: mail.toString(),
+        message: message.toString()
       };
 
-      // Llama a la función POST para enviar el correo electrónico
-      // const response = await POST(formData);
-      // console.log(response); // Puedes hacer algo con la respuesta, como mostrar un mensaje al usuario
+      try {
+        // Envía los datos al servidor
+        const res = await fetch("/api/send", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(formDataObj)
+        });
+
+        if (res.ok) {
+          // Resetea el formulario si la respuesta del servidor es correcta
+          event.currentTarget.reset();
+        } else {
+          // Maneja el error si la respuesta no es correcta
+          console.error("Error en el envío del formulario");
+        }
+      } catch (error) {
+        console.error("Error en el envío del formulario:", error);
+      }
     }
   }
 
@@ -159,13 +175,7 @@ const ContactLinks = ({ slice }: ContactLinksProps): JSX.Element => {
             </div>
 
             <button
-              onClick={async () => {
-                const res = await fetch("/api/send", {
-                  method: "POST",
-                });
-                const data = await res.json();
-                console.log(data)
-              }}
+              type="submit"
               className="w-full py-2 px-4 border-2 border-black rounded-md shadow-sm text-sm font-medium text-black bg-white hover:bg-yellow-happiier focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
               Enviar

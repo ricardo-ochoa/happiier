@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from "resend";
 
 const resend = new Resend("re_16F3jeYk_APWSuQEV95DHtPTagbVGkBFn");
-//const resend = new Resend(process.env.RESEND_API_KEY);
+// const resend = new Resend(process.env.RESEND_API_KEY);
 
 // export async function POST() {
 //   try {
@@ -23,25 +23,19 @@ const resend = new Resend("re_16F3jeYk_APWSuQEV95DHtPTagbVGkBFn");
 // }
 
 export async function POST(req: NextRequest) {
-    try {
-      // Verifica si req.body es del tipo ContactFormData
-      if (req.body instanceof Object) {
-        const { firstName, number, mail, message } = req.body as unknown as ContactFormData;
+  try {
+      const { firstName, number, mail, message } = await req.json() as ContactFormData;
 
-        const responseData = await resend.emails.send({
-          from: "Acme <onboarding@resend.dev>",
-          to: ["desarrollo.happiier@gmail.com"],
-          subject: "Mensaje de contacto",
-          react: EmailTemplate({ firstName, number, mail, message }),
-          text: "",
-        });
+      const responseData = await resend.emails.send({
+        from: "Acme <onboarding@resend.dev>",
+        to: ["desarrollo.happiier@gmail.com"],
+        subject: "Mensaje de contacto",
+        react: EmailTemplate({ firstName, number, mail, message }),
+        text: "",
+      });
 
-        return NextResponse.json(responseData);
-      } else {
-        // Manejar el caso donde req.body no es del tipo esperado
-        return NextResponse.json({ error: "El cuerpo de la solicitud no es válido" });
-      }
-    } catch (error) {
+      return NextResponse.json(responseData);
+  } catch (error) {
       return NextResponse.json({ error });
-    }
+  }
 }
