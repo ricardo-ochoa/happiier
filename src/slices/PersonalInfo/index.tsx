@@ -19,7 +19,8 @@ export type PersonalInfoProps = SliceComponentProps<Content.PersonalInfoSlice>;
 const PersonalInfo = ({ slice }: PersonalInfoProps): JSX.Element => {
 
   return (
-    <div className=" bg-yellow-happiier ">
+    <>
+      {/* <div className=" bg-yellow-happiier ">
       <Bounded
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
@@ -106,7 +107,8 @@ const PersonalInfo = ({ slice }: PersonalInfoProps): JSX.Element => {
           />
         </div>
       </Bounded >
-    </div >
+    </div > */}
+    </>
   );
 };
 

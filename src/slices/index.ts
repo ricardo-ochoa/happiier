@@ -15,5 +15,6 @@ export const components = {
   project: dynamic(() => import("./Project")),
   service_list: dynamic(() => import("./ServiceList")),
   services: dynamic(() => import("./Services")),
+  team_happiier: dynamic(() => import("./TeamHappiier")),
   text_block: dynamic(() => import("./TextBlock")),
 };

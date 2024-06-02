@@ -182,6 +182,7 @@ export type HomapageDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | TeamHappiierSlice
   | PersonalInfoSlice
   | ServiceListSlice
   | ContactLinksSlice
@@ -1607,6 +1608,51 @@ export type ServicesSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *TeamHappiier → Primary*
+ */
+export interface TeamHappiierSliceDefaultPrimary {
+  /**
+   * Members field in *TeamHappiier → Primary*
+   *
+   * - **Field Type**: Embed
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team_happiier.primary.members
+   * - **Documentation**: https://prismic.io/docs/field#embed
+   */
+  members: prismic.EmbedField;
+}
+
+/**
+ * Default variation for TeamHappiier Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TeamHappiierSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<TeamHappiierSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *TeamHappiier*
+ */
+type TeamHappiierSliceVariation = TeamHappiierSliceDefault;
+
+/**
+ * TeamHappiier Shared Slice
+ *
+ * - **API ID**: `team_happiier`
+ * - **Description**: TeamHappiier
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TeamHappiierSlice = prismic.SharedSlice<
+  "team_happiier",
+  TeamHappiierSliceVariation
+>;
+
+/**
  * Primary content in *TextBlock → Primary*
  */
 export interface TextBlockSliceDefaultPrimary {
@@ -1730,6 +1776,10 @@ declare module "@prismicio/client" {
       ServicesSliceDefaultItem,
       ServicesSliceVariation,
       ServicesSliceDefault,
+      TeamHappiierSlice,
+      TeamHappiierSliceDefaultPrimary,
+      TeamHappiierSliceVariation,
+      TeamHappiierSliceDefault,
       TextBlockSlice,
       TextBlockSliceDefaultPrimary,
       TextBlockSliceVariation,

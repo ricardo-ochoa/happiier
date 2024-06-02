@@ -17,6 +17,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "team_happiier": {
+              "type": "SharedSlice"
+            },
             "personal_info": {
               "type": "SharedSlice"
             },
