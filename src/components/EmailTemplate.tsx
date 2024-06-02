@@ -32,6 +32,7 @@ export const EmailThoughtsTemplate: React.FC<Readonly<EmailThoughtsProps>> = ({
     message
 }) => (
     <div className="bg-slate-500">
+        <h3 className="text-4xl font-bold">Happiier thoughts:</h3>
         <p>{message}</p>
     </div>
 );

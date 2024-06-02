@@ -116,7 +116,6 @@ const ContactLinks = ({ slice }: ContactLinksProps): JSX.Element => {
   }
 
   useEffect(() => {
-    console.log(showAnimation)
     if (showAnimation) {
       play();
       setTimeout(() => {
