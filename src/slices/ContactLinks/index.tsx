@@ -1,4 +1,5 @@
 "use client"
+import { useState } from "react";
 import { Content } from "@prismicio/client";
 import { PrismicNextLink } from "@prismicio/next";
 import Bounded from "@/components/Bounded";
@@ -17,27 +18,28 @@ export type ContactLinksProps = SliceComponentProps<Content.ContactLinksSlice>;
  * Component for "ContactLinks" Slices.
  */
 const ContactLinks = ({ slice }: ContactLinksProps): JSX.Element => {
+  const [formData, setFormData] = useState<ContactFormData>({
+    firstName: "",
+    number: "",
+    mail: "",
+    message: ""
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+  };
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    // Obtiene los valores de los campos del formulario
-    const formData = new FormData(event.currentTarget);
-    const firstName = formData.get('firstName');
-    const number = formData.get('number');
-    const mail = formData.get('mail');
-    const message = formData.get('message');
+    const { firstName, number, mail, message } = formData;
 
     // Verifica si los valores son distintos de null antes de continuar
     if (firstName && number && mail && message) {
-      // Construye el objeto ContactFormData
-      const formDataObj: ContactFormData = {
-        firstName: firstName.toString(),
-        number: number.toString(),
-        mail: mail.toString(),
-        message: message.toString()
-      };
-
       try {
         // Envía los datos al servidor
         const res = await fetch("/api/send", {
@@ -45,12 +47,17 @@ const ContactLinks = ({ slice }: ContactLinksProps): JSX.Element => {
           headers: {
             "Content-Type": "application/json"
           },
-          body: JSON.stringify(formDataObj)
+          body: JSON.stringify(formData)
         });
 
         if (res.ok) {
           // Resetea el formulario si la respuesta del servidor es correcta
-          event.currentTarget.reset();
+          setFormData({
+            firstName: "",
+            number: "",
+            mail: "",
+            message: ""
+          });
         } else {
           // Maneja el error si la respuesta no es correcta
           console.error("Error en el envío del formulario");
@@ -93,9 +100,7 @@ const ContactLinks = ({ slice }: ContactLinksProps): JSX.Element => {
                 {slice.primary.mail}
               </PrismicNextLink>)
             }
-
           </div>
-
 
           <p className="mt-10 text-xl text-black-happiier">
             Redes sociales:
@@ -151,25 +156,47 @@ const ContactLinks = ({ slice }: ContactLinksProps): JSX.Element => {
           <form onSubmit={handleSubmit}>
             <div className="mb-4">
               <label htmlFor="firstName" className="block text-sm font-medium text-gray-700">Nombre:</label>
-              <input type="text" name="firstName" id="firstName" required
+              <input
+                type="text"
+                name="firstName"
+                id="firstName"
+                value={formData.firstName}
+                onChange={handleChange}
+                required
                 className="mt-1 px-3 py-2 block w-full rounded-md border-2 transition-colors duration-300 focus:outline-none focus:ring-1 focus:ring-black hover:ring-1 hover:ring-black"
               />
             </div>
             <div className="mb-4">
               <label htmlFor="number" className="block text-sm font-medium text-gray-700">Número de teléfono:</label>
-              <input type="tel" name="number" id="number"
+              <input
+                type="tel"
+                name="number"
+                id="number"
+                value={formData.number}
+                onChange={handleChange}
                 className="mt-1 px-3 py-2 block w-full rounded-md border-2 transition-colors duration-300 focus:outline-none focus:ring-1 focus:ring-black hover:ring-1 hover:ring-black"
               />
             </div>
             <div className="mb-4">
               <label htmlFor="mail" className="block text-sm font-medium text-gray-700">Correo electrónico:</label>
-              <input type="email" name="mail" id="mail" required
+              <input
+                type="email"
+                name="mail"
+                id="mail"
+                value={formData.mail}
+                onChange={handleChange}
+                required
                 className="mt-1 px-3 py-2 block w-full rounded-md border-2 transition-colors duration-300 focus:outline-none focus:ring-1 focus:ring-black hover:ring-1 hover:ring-black"
               />
             </div>
             <div className="mb-4">
               <label htmlFor="message" className="block text-sm font-medium text-gray-700">Mensaje:</label>
-              <textarea name="message" id="message" required
+              <textarea
+                name="message"
+                id="message"
+                value={formData.message}
+                onChange={handleChange}
+                required
                 className="mt-1 px-3 py-2 block w-full rounded-md border-2 transition-colors duration-300 focus:outline-none focus:ring-1 focus:ring-black hover:ring-1 hover:ring-black"
               ></textarea>
             </div>
