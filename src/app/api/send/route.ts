@@ -1,4 +1,4 @@
-import { EmailTemplate } from "@/components/EmailTemplate";
+import { EmailTemplate, EmailThoughtsTemplate } from "@/components/EmailTemplate";
 import ContactFormData from "@/interface/contactFormData";
 import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from "resend";
@@ -28,7 +28,7 @@ export async function POST(req: NextRequest) {
 
       const responseData = await resend.emails.send({
         from: "Acme <onboarding@resend.dev>",
-        to: ["desarrollo.happiier@gmail.com"],
+        to: ["desarrollo.happiier@gmail.com", "hola@happiier.studio"],
         subject: "Mensaje de contacto",
         react: EmailTemplate({ firstName, number, mail, message }),
         text: "",
@@ -37,5 +37,25 @@ export async function POST(req: NextRequest) {
       return NextResponse.json(responseData);
   } catch (error) {
       return NextResponse.json({ error });
+  }
+}
+
+export async function POSTMESSAGE(req: { json: () => PromiseLike<{ message: any; }> | { message: any; }; }) {
+  try {
+    const { message } = await req.json();
+
+    const responseData = await resend.emails.send({
+      from: "Acme <onboarding@resend.dev>",
+      to: ["desarrollo.happiier@gmail.com", "hola@happiier.studio"],
+      subject: "Happiier thoughts",
+      react: EmailThoughtsTemplate({
+        message,
+      }),
+      text: "",
+    });
+
+    return NextResponse.json(responseData);
+  } catch (error) {
+    return NextResponse.json({ error });
   }
 }

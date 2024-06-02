@@ -1,5 +1,5 @@
-"use client"
-import { useState } from "react";
+"use client";
+import { useState, useEffect } from "react";
 import { Content } from "@prismicio/client";
 import { PrismicNextLink } from "@prismicio/next";
 import Bounded from "@/components/Bounded";
@@ -8,6 +8,8 @@ import { isFilled } from "@prismicio/client";
 import { FaInstagram, FaLinkedin, FaWhatsapp, FaFacebook } from "react-icons/fa6";
 import { Typography } from "@mui/material";
 import ContactFormData from "@/interface/contactFormData";
+import { useLottie } from "lottie-react";
+import confetti from "../../../public/confetti.json";
 
 /**
  * Props for `ContactLinks`.
@@ -18,18 +20,38 @@ export type ContactLinksProps = SliceComponentProps<Content.ContactLinksSlice>;
  * Component for "ContactLinks" Slices.
  */
 const ContactLinks = ({ slice }: ContactLinksProps): JSX.Element => {
+  const [showAnimation, setShowAnimation] = useState(false);
+
+  const options = {
+    animationData: confetti,
+    loop: false,
+  };
+  const { View, play, stop } = useLottie(options);
+
   const [formData, setFormData] = useState<ContactFormData>({
     firstName: "",
     number: "",
     mail: "",
-    message: ""
+    message: "",
   });
+
+  const [formMessage, setFormMessage] = useState({
+    messageThoughts: "",
+  });
+
+  const handleChangeMessage = (e: { target: { name: any; value: any } }) => {
+    const { name, value } = e.target;
+    setFormMessage({
+      ...formMessage,
+      [name]: value,
+    });
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
-      [name]: value
+      [name]: value,
     });
   };
 
@@ -38,28 +60,24 @@ const ContactLinks = ({ slice }: ContactLinksProps): JSX.Element => {
 
     const { firstName, number, mail, message } = formData;
 
-    // Verifica si los valores son distintos de null antes de continuar
     if (firstName && number && mail && message) {
       try {
-        // Envía los datos al servidor
         const res = await fetch("/api/send", {
           method: "POST",
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
           },
-          body: JSON.stringify(formData)
+          body: JSON.stringify(formData),
         });
 
         if (res.ok) {
-          // Resetea el formulario si la respuesta del servidor es correcta
           setFormData({
             firstName: "",
             number: "",
             mail: "",
-            message: ""
+            message: "",
           });
         } else {
-          // Maneja el error si la respuesta no es correcta
           console.error("Error en el envío del formulario");
         }
       } catch (error) {
@@ -68,16 +86,57 @@ const ContactLinks = ({ slice }: ContactLinksProps): JSX.Element => {
     }
   }
 
+  async function handleSubmitMessage(event: { preventDefault: () => void }) {
+    event.preventDefault();
+
+    const { messageThoughts } = formMessage;
+
+    if (messageThoughts) {
+      try {
+        const res = await fetch("/api/send", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ message: messageThoughts }),
+        });
+
+        if (res.ok) {
+          setFormMessage({
+            messageThoughts: "",
+          });
+          setShowAnimation(true);
+        } else {
+          console.error("Error en el envío del formulario");
+        }
+      } catch (error) {
+        console.error("Error en el envío del formulario:", error);
+      }
+    }
+  }
+
+  useEffect(() => {
+    console.log(showAnimation)
+    if (showAnimation) {
+      play();
+      setTimeout(() => {
+        setShowAnimation(false);
+        stop();
+      }, 3000);
+    }
+  }, [showAnimation, play, stop]);
+
   return (
-    <Bounded
-      data-slice-type={slice.slice_type}
-      data-slice-variation={slice.variation}
-    >
+    <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation}>
+      {showAnimation && (
+        <div className="fixed inset-0 flex items-center justify-center z-50 bg-white bg-opacity-75">
+          {View}
+        </div>
+      )}
+
       <div className="flex flex-col md:flex-row md:items-center">
         <div className="w-full px-5 md:mr-20">
-          <p className="text-2xl text-black-happiier">
-            {slice.primary.title}
-          </p>
+          <p className="text-2xl text-black-happiier">{slice.primary.title}</p>
           <div className="mt-3">
             {isFilled.link(slice.primary.phone_link) && (
               <PrismicNextLink
@@ -86,11 +145,9 @@ const ContactLinks = ({ slice }: ContactLinksProps): JSX.Element => {
                 aria-label={"Happiier en WhatsApp"}
               >
                 {slice.primary.phone_title}
-              </PrismicNextLink>)
-            }
-            {
-              <span className="text-3xl text-black-happiier"> · </span>
-            }
+              </PrismicNextLink>
+            )}
+            <span className="text-3xl text-black-happiier"> · </span>
             {isFilled.link(slice.primary.mail_link) && (
               <PrismicNextLink
                 field={slice.primary.mail_link}
@@ -98,13 +155,11 @@ const ContactLinks = ({ slice }: ContactLinksProps): JSX.Element => {
                 aria-label={"Happiier en WhatsApp"}
               >
                 {slice.primary.mail}
-              </PrismicNextLink>)
-            }
+              </PrismicNextLink>
+            )}
           </div>
 
-          <p className="mt-10 text-xl text-black-happiier">
-            Redes sociales:
-          </p>
+          <p className="mt-10 text-xl text-black-happiier">Redes sociales:</p>
           <div className="mt-3 flex items-center">
             {isFilled.link(slice.primary.whatsapp_link) && (
               <PrismicNextLink
@@ -114,8 +169,7 @@ const ContactLinks = ({ slice }: ContactLinksProps): JSX.Element => {
               >
                 <FaWhatsapp />
               </PrismicNextLink>
-            )
-            }
+            )}
             {isFilled.link(slice.primary.instagram_link) && (
               <PrismicNextLink
                 field={slice.primary.instagram_link}
@@ -124,8 +178,7 @@ const ContactLinks = ({ slice }: ContactLinksProps): JSX.Element => {
               >
                 <FaInstagram />
               </PrismicNextLink>
-            )
-            }
+            )}
             {isFilled.link(slice.primary.facebook_link) && (
               <PrismicNextLink
                 field={slice.primary.facebook_link}
@@ -134,8 +187,7 @@ const ContactLinks = ({ slice }: ContactLinksProps): JSX.Element => {
               >
                 <FaFacebook />
               </PrismicNextLink>
-            )
-            }
+            )}
             {isFilled.link(slice.primary.linkedin_link) && (
               <PrismicNextLink
                 field={slice.primary.linkedin_link}
@@ -144,18 +196,19 @@ const ContactLinks = ({ slice }: ContactLinksProps): JSX.Element => {
               >
                 <FaLinkedin />
               </PrismicNextLink>
-            )
-            }
+            )}
           </div>
         </div>
 
         <div className="w-full">
-          <Typography style={{ fontSize: '30px', fontWeight: 500, marginTop: '50px', marginBottom: '10px' }}>
+          <Typography style={{ fontSize: "30px", fontWeight: 500, marginTop: "50px", marginBottom: "10px" }}>
             Contáctanos:
           </Typography>
           <form onSubmit={handleSubmit}>
             <div className="mb-4">
-              <label htmlFor="firstName" className="block text-sm font-medium text-gray-700">Nombre:</label>
+              <label htmlFor="firstName" className="block text-sm font-medium text-gray-700">
+                Nombre:
+              </label>
               <input
                 type="text"
                 name="firstName"
@@ -167,7 +220,9 @@ const ContactLinks = ({ slice }: ContactLinksProps): JSX.Element => {
               />
             </div>
             <div className="mb-4">
-              <label htmlFor="number" className="block text-sm font-medium text-gray-700">Número de teléfono:</label>
+              <label htmlFor="number" className="block text-sm font-medium text-gray-700">
+                Número de teléfono:
+              </label>
               <input
                 type="tel"
                 name="number"
@@ -178,7 +233,9 @@ const ContactLinks = ({ slice }: ContactLinksProps): JSX.Element => {
               />
             </div>
             <div className="mb-4">
-              <label htmlFor="mail" className="block text-sm font-medium text-gray-700">Correo electrónico:</label>
+              <label htmlFor="mail" className="block text-sm font-medium text-gray-700">
+                Correo electrónico:
+              </label>
               <input
                 type="email"
                 name="mail"
@@ -190,7 +247,9 @@ const ContactLinks = ({ slice }: ContactLinksProps): JSX.Element => {
               />
             </div>
             <div className="mb-4">
-              <label htmlFor="message" className="block text-sm font-medium text-gray-700">Mensaje:</label>
+              <label htmlFor="message" className="block text-sm font-medium text-gray-700">
+                Mensaje:
+              </label>
               <textarea
                 name="message"
                 id="message"
@@ -209,6 +268,34 @@ const ContactLinks = ({ slice }: ContactLinksProps): JSX.Element => {
             </button>
           </form>
         </div>
+      </div>
+
+      <div className="relative w-full mt-10">
+        <Typography style={{ fontSize: "30px", fontWeight: 500, marginTop: "50px", marginBottom: "10px" }}>
+          Happiier thoughts
+        </Typography>
+        <form onSubmit={handleSubmitMessage}>
+          <div className="mb-4">
+            <label htmlFor="messageThoughts" className="block text-sm font-medium text-gray-700">
+              Compartenos tus pensamientos:
+            </label>
+            <textarea
+              name="messageThoughts"
+              id="messageThoughts"
+              value={formMessage.messageThoughts}
+              onChange={handleChangeMessage}
+              required
+              className="mt-1 px-3 py-2 block w-full rounded-md border-2 transition-colors duration-300 focus:outline-none focus:ring-1 focus:ring-black hover:ring-1 hover:ring-black"
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            className="w-full py-2 px-4 border-2 border-black rounded-md shadow-sm text-sm font-medium text-black bg-white hover:bg-yellow-happiier focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          >
+            Compartir
+          </button>
+        </form>
       </div>
     </Bounded>
   );

@@ -24,3 +24,14 @@ export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
         <p>{message}</p>
     </div>
 );
+interface EmailThoughtsProps {
+    message: string;
+}
+
+export const EmailThoughtsTemplate: React.FC<Readonly<EmailThoughtsProps>> = ({
+    message
+}) => (
+    <div className="bg-slate-500">
+        <p>{message}</p>
+    </div>
+);
