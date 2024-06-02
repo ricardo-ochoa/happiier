@@ -49,7 +49,7 @@ const Equipo = ({ slice }: EquipoProps): JSX.Element => {
         dimensions: { width: 500, height: 500 },
         copyright: null,
         id: 'ZkmGaSol0Zci9Q4W',
-        edit: {}
+        edit: { x: 0, y: 0, zoom: 1, background: 'none' }
       },
       portfolio: { link_type: 'Any' },
       instagram: {
@@ -79,7 +79,7 @@ const Equipo = ({ slice }: EquipoProps): JSX.Element => {
         dimensions: { width: 500, height: 500 },
         copyright: null,
         id: 'ZkD7G0FLKBtrWzIT',
-        edit: {}
+        edit: { x: 0, y: 0, zoom: 1, background: 'none' }
       },
       portfolio: { link_type: 'Any' },
       instagram: {
@@ -109,7 +109,7 @@ const Equipo = ({ slice }: EquipoProps): JSX.Element => {
         dimensions: { width: 500, height: 500 },
         copyright: null,
         id: 'ZkD7HUFLKBtrWzIV',
-        edit: {}
+        edit: { x: 0, y: 0, zoom: 1, background: 'none' }
       },
       portfolio: { link_type: 'Any' },
       instagram: {
@@ -139,7 +139,7 @@ const Equipo = ({ slice }: EquipoProps): JSX.Element => {
         dimensions: { width: 500, height: 500 },
         copyright: null,
         id: 'ZkD7GkFLKBtrWzIS',
-        edit: {}
+        edit: { x: 0, y: 0, zoom: 1, background: 'none' }
       },
       portfolio: { link_type: 'Any' },
       instagram: {
@@ -169,7 +169,7 @@ const Equipo = ({ slice }: EquipoProps): JSX.Element => {
         dimensions: { width: 500, height: 500 },
         copyright: null,
         id: 'ZkEO80FLKBtrWzJd',
-        edit: {}
+        edit: { x: 0, y: 0, zoom: 1, background: 'none' }
       },
       portfolio: { link_type: 'Any' },
       instagram: {
@@ -199,7 +199,7 @@ const Equipo = ({ slice }: EquipoProps): JSX.Element => {
         dimensions: { width: 500, height: 500 },
         copyright: null,
         id: 'ZigOHPPdc1huKtp7',
-        edit: {}
+        edit: { x: 0, y: 0, zoom: 1, background: 'none' }
       },
       portfolio: {
         link_type: 'Web',
@@ -233,7 +233,7 @@ const Equipo = ({ slice }: EquipoProps): JSX.Element => {
         dimensions: { width: 500, height: 500 },
         copyright: null,
         id: 'ZigN7_Pdc1huKtpu',
-        edit: {}
+        edit: { x: 0, y: 0, zoom: 1, background: 'none' }
       },
       portfolio: {
         link_type: 'Web',
@@ -259,7 +259,7 @@ const Equipo = ({ slice }: EquipoProps): JSX.Element => {
         dimensions: { width: 500, height: 500 },
         copyright: null,
         id: 'ZigN7fPdc1huKtps',
-        edit: {}
+        edit: { x: 0, y: 0, zoom: 1, background: 'none' }
       },
       portfolio: {
         link_type: 'Web',
@@ -305,7 +305,7 @@ const Equipo = ({ slice }: EquipoProps): JSX.Element => {
         dimensions: { width: 500, height: 500 },
         copyright: null,
         id: 'ZigN7vPdc1huKtpt',
-        edit: {}
+        edit: { x: 0, y: 0, zoom: 1, background: 'none' }
       },
       portfolio: { link_type: 'Any' },
       instagram: {
@@ -335,7 +335,7 @@ const Equipo = ({ slice }: EquipoProps): JSX.Element => {
         dimensions: { width: 500, height: 500 },
         copyright: null,
         id: 'ZigN6_Pdc1huKtpq',
-        edit: {}
+        edit: { x: 0, y: 0, zoom: 1, background: 'none' }
       },
       portfolio: {
         link_type: 'Web',
@@ -361,7 +361,7 @@ const Equipo = ({ slice }: EquipoProps): JSX.Element => {
         dimensions: { width: 500, height: 500 },
         copyright: null,
         id: 'ZkERlEFLKBtrWzJk',
-        edit: {}
+        edit: { x: 0, y: 0, zoom: 1, background: 'none' }
       },
       portfolio: { link_type: 'Any' },
       instagram: {
@@ -387,7 +387,7 @@ const Equipo = ({ slice }: EquipoProps): JSX.Element => {
         dimensions: { width: 500, height: 500 },
         copyright: null,
         id: 'ZkERW0FLKBtrWzJi',
-        edit: {}
+        edit: { x: 0, y: 0, zoom: 1, background: 'none' }
       },
       portfolio: {
         link_type: 'Web',
