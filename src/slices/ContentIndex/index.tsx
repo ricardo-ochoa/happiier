@@ -33,9 +33,11 @@ const BlogPostIndex = async ({
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
       >
-        <Heading size="sm" className="mb-8">
-          {slice.primary.heading}
-        </Heading>
+        <div id='portfolio'>
+          <Heading size="sm" className="mb-8">
+            {slice.primary.heading}
+          </Heading>
+        </div>
         <Heading className="mb-8">
           {slice.primary.hashtag}
         </Heading>

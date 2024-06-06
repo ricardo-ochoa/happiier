@@ -1,5 +1,6 @@
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
+import { MdArrowBack } from "react-icons/md";
 
 /**
  * Props for `ImageGallery`.
@@ -29,7 +30,7 @@ const ImageGallery = ({ slice }: ImageGalleryProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      <div className="masonry sm:masonry-sm md:masonry-md">
+      <div className="masonry sm:masonry-sm md:masonry-md mb-20" >
         {images.map((img, index) => (
           <div key={index}>
             <img
@@ -39,6 +40,14 @@ const ImageGallery = ({ slice }: ImageGalleryProps): JSX.Element => {
             />
           </div>
         ))}
+      </div>
+      <div style={{
+        marginTop: '40px', backgroundColor: "#f8fafc", padding: '5px', borderRadius: '10px', margin: "0 auto",
+      }}>
+        <a href="/#portfolio" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <MdArrowBack className="inline-block" />
+          <p style={{ paddingLeft: '5px', fontSize: '12px' }}>Regresar a proyectos</p>
+        </a>
       </div>
     </section>
   );
