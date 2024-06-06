@@ -8,8 +8,10 @@ import { isFilled } from "@prismicio/client";
 import { FaInstagram, FaLinkedin, FaWhatsapp, FaFacebook } from "react-icons/fa6";
 import { Typography } from "@mui/material";
 import ContactFormData from "@/interface/contactFormData";
+import Lottie from "lottie-react";
 import { useLottie } from "lottie-react";
 import confetti from "../../../public/confetti.json";
+import happy from "../../../public/happy.json";
 
 /**
  * Props for `ContactLinks`.
@@ -20,7 +22,9 @@ export type ContactLinksProps = SliceComponentProps<Content.ContactLinksSlice>;
  * Component for "ContactLinks" Slices.
  */
 const ContactLinks = ({ slice }: ContactLinksProps): JSX.Element => {
+  const [showAnimationFace, setShowAnimationFace] = useState(false);
   const [showAnimation, setShowAnimation] = useState(false);
+  const [confirmationMessage, setConfirmationMessage] = useState("");
 
   const options = {
     animationData: confetti,
@@ -77,6 +81,16 @@ const ContactLinks = ({ slice }: ContactLinksProps): JSX.Element => {
             mail: "",
             message: "",
           });
+
+          setConfirmationMessage("Gracias por tu mensaje");
+          setShowAnimationFace(true);
+
+          // Ocultar el mensaje de confirmación y la animación después de 2 segundos
+          setTimeout(() => {
+            setConfirmationMessage("");
+            setShowAnimationFace(false);
+          }, 2500);
+
         } else {
           console.error("Error en el envío del formulario");
         }
@@ -105,7 +119,14 @@ const ContactLinks = ({ slice }: ContactLinksProps): JSX.Element => {
           setFormMessage({
             messageThoughts: "",
           });
+          setConfirmationMessage("Gracias por tu mensaje");
           setShowAnimation(true);
+
+          // Ocultar el mensaje de confirmación y la animación después de 2 segundos
+          setTimeout(() => {
+            setConfirmationMessage("");
+            setShowAnimation(false);
+          }, 2500);
         } else {
           console.error("Error en el envío del formulario");
         }
@@ -115,23 +136,50 @@ const ContactLinks = ({ slice }: ContactLinksProps): JSX.Element => {
     }
   }
 
-  useEffect(() => {
-    if (showAnimation) {
-      play();
-      setTimeout(() => {
-        setShowAnimation(false);
-        stop();
-      }, 3000);
-    }
-  }, [showAnimation, play, stop]);
+  // useEffect(() => {
+  //   if (showAnimation) {
+  //     play();
+  //     setTimeout(() => {
+  //       setShowAnimation(false);
+  //       stop();
+  //     }, 3000);
+  //   }
+  // }, [showAnimation, play, stop]);
 
   return (
     <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation}>
-      {showAnimation && (
-        <div className="fixed inset-0 flex items-center justify-center z-50 bg-white bg-opacity-75">
-          {View}
+
+      {confirmationMessage && (
+        <div className="fixed inset-0 flex items-center justify-center z-50">
+          <div className="relative top-40 p-6 rounded-md shadow-md bg-white bg-opacity-75">
+            <p className="text-lg font-semibold">{confirmationMessage}</p>
+          </div>
         </div>
       )}
+
+      {showAnimation && (
+        <div className="fixed inset-0 flex items-center justify-center z-40">
+          <Lottie
+            animationData={confetti}
+            className="flex justify-center items-center"
+            loop={false}
+          />
+        </div>
+      )}
+
+
+      {showAnimationFace && (
+        <>
+          <div className="fixed p-6 mt-30 inset-0 flex items-center justify-center z-50">
+            <Lottie
+              animationData={happy}
+              className="flex justify-center items-center"
+              loop={false}
+            />
+          </div>
+        </>
+      )
+      }
 
       <div className="flex flex-col md:flex-row md:items-center">
         <div className="w-full px-5 md:mr-20">
@@ -276,7 +324,7 @@ const ContactLinks = ({ slice }: ContactLinksProps): JSX.Element => {
         <form onSubmit={handleSubmitMessage}>
           <div className="mb-4">
             <label htmlFor="messageThoughts" className="block text-sm font-medium text-gray-700">
-              Compartenos tus pensamientos:
+              Compártenos tus pensamientos:
             </label>
             <textarea
               name="messageThoughts"
@@ -296,7 +344,7 @@ const ContactLinks = ({ slice }: ContactLinksProps): JSX.Element => {
           </button>
         </form>
       </div>
-    </Bounded>
+    </Bounded >
   );
 };
 

@@ -144,7 +144,7 @@ const Equipo = ({ slice }: EquipoProps): JSX.Element => {
       portfolio: { link_type: 'Any' },
       instagram: {
         link_type: 'Web',
-        url: 'https://www.instagram.com/happiier.studio/',
+        url: 'https://www.instagram.com/andy_becerril/',
         target: '_blank'
       },
       linkedin: {
