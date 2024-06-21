@@ -1,0 +1,26 @@
+{
+  "id": "team_happiier",
+  "type": "SharedSlice",
+  "name": "TeamHappiier",
+  "description": "TeamHappiier",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "members": {
+          "type": "Embed",
+          "config": {
+            "label": "Members",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

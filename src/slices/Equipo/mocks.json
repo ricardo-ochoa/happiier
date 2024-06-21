@@ -67,8 +67,24 @@
 					"__TYPE__": "ExternalLink",
 					"url": "http://twitter.com"
 				}
+			},
+			"other_description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Fugiat ut culpa voluptate. Ipsum ullamco id consectetur aliquip quis aliqua velit ut consequat do dolor culpa minim. Consectetur est ea ad elit Lorem deserunt eiusmod."
+						}
+					}
+				]
 			}
 		},
-		"items": []
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
 	}
 ]

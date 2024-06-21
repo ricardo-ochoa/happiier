@@ -1,0 +1,101 @@
+{
+  "id": "personal_info",
+  "type": "SharedSlice",
+  "name": "PersonalInfo",
+  "description": "PersonalInfo",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "Text",
+          "config": {
+            "label": "Heading",
+            "placeholder": ""
+          }
+        },
+        "last_name_image": {
+          "type": "Image",
+          "config": {
+            "label": "Last Name Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "personaltype": {
+          "type": "Select",
+          "config": {
+            "label": "PersonalType",
+            "placeholder": "",
+            "options": [
+              "Happiier",
+              "Partner"
+            ]
+          }
+        },
+        "avatar": {
+          "type": "Image",
+          "config": {
+            "label": "Avatar",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "portfolio": {
+          "type": "Link",
+          "config": {
+            "label": "Portfolio",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "instagram": {
+          "type": "Link",
+          "config": {
+            "label": "Instagram",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "linkedin": {
+          "type": "Link",
+          "config": {
+            "label": "LinkedIn",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "xlink": {
+          "type": "Link",
+          "config": {
+            "label": "xLink",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "threads": {
+          "type": "Link",
+          "config": {
+            "label": "Threads",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "facebook": {
+          "type": "Link",
+          "config": {
+            "label": "Facebook",
+            "placeholder": "",
+            "select": null
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

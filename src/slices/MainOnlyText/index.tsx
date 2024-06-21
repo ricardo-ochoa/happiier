@@ -24,16 +24,16 @@ const MainOnlyText = ({ slice }: MainOnlyTextProps): JSX.Element => {
         <div className=" prose-xl mt-20 mb-20">
           {
             slice.primary.bold_text && (
-              <h3 className="italic">
+              <h3 className="font-bold">
                 {slice.primary.bold_text}
               </h3>
             )
           }
           <div>
-            <span className="font-extrabold">Somos un colectivo de profesionales</span> que unen su expertise para crear estrategias funcionales y hacer feliz a tu marca. Creadoras de la metodología Happiier que te da las herramientas adecuadas para establecer objetivos claros y una visión futura para tu negocio. Nos apasiona trabajar codo a codo contigo para identificar tus necesidades y convertirlas en soluciones visuales innovadoras y efectivas. Únete a nosotros en el viaje hacia la excelencia creativa y descubre cómo juntos podemos hacer que tu marca brille con luz propia.
+            {/* <span className="font-extrabold">Somos un colectivo de profesionales</span> que unen su expertise para crear estrategias funcionales y hacer feliz a tu marca. Creadoras de la metodología Happiier que te da las herramientas adecuadas para establecer objetivos claros y una visión futura para tu negocio. Nos apasiona trabajar codo a codo contigo para identificar tus necesidades y convertirlas en soluciones visuales innovadoras y efectivas. Únete a nosotros en el viaje hacia la excelencia creativa y descubre cómo juntos podemos hacer que tu marca brille con luz propia. */}
+            <PrismicRichText field={slice.primary.description} />
           </div>
 
-          {/* <PrismicRichText field={slice.primary.description} /> */}
         </div>
       </Bounded>
     </div >

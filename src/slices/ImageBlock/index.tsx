@@ -11,12 +11,21 @@ export type ImageProps = SliceComponentProps<Content.ImageSlice>;
 /**
  * Component for "Image" Slices.
  */
+
 const Image = ({ slice }: ImageProps): JSX.Element => {
+  const images = [slice.primary.image]
+
   return (
-    <PrismicNextImage
-      field={slice.primary.image}
-      className="not-prose w-full h-full rounded-md  my-10 md:my-14 lg:my-16"
-    />
+    <div className="masonry sm:masonry-sm md:masonry-md">
+      {images.map((image, index) => (
+        <img
+          className="my-10 md:my-14 lg:my-16"
+          key={index}
+          src={image.url || "Image"}
+          alt={image.alt || "Image"}
+        />
+      ))}
+    </div>
   );
 };
 

@@ -2,7 +2,7 @@
 
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
-import React, { useLayoutEffect, useRef } from "react";
+import React, { useLayoutEffect, useRef, useState } from "react";
 import { MdCircle } from "react-icons/md";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -10,7 +10,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Bounded from "@/components/Bounded";
 import Heading from "@/components/Heading";
 import Link from "next/link";
-
 gsap.registerPlugin(ScrollTrigger);
 
 /**
@@ -69,14 +68,14 @@ const Services = ({ slice }: Services): JSX.Element => {
         <Heading size="xl" className="mb-7 mt-4  text-yellow-happiier" as="h3">
           {slice.primary.heading}
         </Heading>
-        <div className={
+        {/* <div className={
           "prose prose-xl prose-slate"
         }>
           {'Un equipo integrado que impulsa ideas hermosas hacia el éxito.'}
-        </div>
+        </div> */}
       </Bounded>
 
-      {slice.items.map(({ service_color, service_name }, index) => (
+      {/* {slice.items.map(({ service_color, service_name }, index) => (
         <div
           key={index}
           className="service-row mb-6 flex items-center justify-center gap-5 text-slate-100"
@@ -105,7 +104,7 @@ const Services = ({ slice }: Services): JSX.Element => {
             </React.Fragment>
           ))}
         </div>
-      ))}
+      ))} */}
 
     </section>
   );

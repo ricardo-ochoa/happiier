@@ -19,6 +19,13 @@
             "placeholder": ""
           }
         },
+        "hashtag": {
+          "type": "Text",
+          "config": {
+            "label": "hashtag",
+            "placeholder": ""
+          }
+        },
         "content_type": {
           "type": "Select",
           "config": {
@@ -29,6 +36,19 @@
               "Projects"
             ],
             "default_value": "Blog"
+          }
+        },
+        "content_type_section": {
+          "type": "Select",
+          "config": {
+            "label": "Content Type Section",
+            "placeholder": "",
+            "options": [
+              "ESTRATEGIA",
+              "BRANDING",
+              "EXPERIENCE",
+              "SOCIAL MEDIA"
+            ]
           }
         },
         "description": {

@@ -31,6 +31,20 @@
 							"value": "#2008b5",
 							"type": "Color"
 						}
+					],
+					[
+						"description",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Quis mollit duis elit sit adipisicing."
+									}
+								}
+							]
+						}
 					]
 				]
 			}

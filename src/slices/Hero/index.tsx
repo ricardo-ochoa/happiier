@@ -75,7 +75,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
       data-slice-variation={slice.variation}
       ref={component}
     >
-      <section
+      {/* <section
         data-slice-type={slice.slice_type}
         data-slice-variation={slice.variation}
         className="position-fixed z-index-[-1] grid min-h-[70vh] grid-cols-1 items-center md:grid-cols-2"
@@ -96,7 +96,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
             </span>
           </h1>
         </div>
-      </section >
+      </section > */}
       <Video />
     </Bounded>
   );

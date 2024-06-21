@@ -1,0 +1,36 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"service_title",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "eaten",
+							"type": "Text"
+						}
+					],
+					[
+						"service_description",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Amet nostrud id cupidatat tempor et cillum velit amet cupidatat excepteur velit Lorem magna. Quis reprehenderit id eu culpa aliqua Lorem reprehenderit consectetur aute pariatur. Duis minim ex anim culpa ex quis aliqua deserunt sit in aliqua ut ipsum."
+									}
+								}
+							]
+						}
+					]
+				]
+			}
+		]
+	}
+]

@@ -1,7 +1,7 @@
 {
   "format": "page",
-  "id": "page",
-  "label": "Page",
+  "id": "team_member",
+  "label": "Team Member",
   "repeatable": true,
   "status": true,
   "json": {
@@ -17,31 +17,7 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "team_happiier": {
-              "type": "SharedSlice"
-            },
             "personal_info": {
-              "type": "SharedSlice"
-            },
-            "service_list": {
-              "type": "SharedSlice"
-            },
-            "contact_links": {
-              "type": "SharedSlice"
-            },
-            "text_block": {
-              "type": "SharedSlice"
-            },
-            "blog_post_index": {
-              "type": "SharedSlice"
-            },
-            "main_only_text": {
-              "type": "SharedSlice"
-            },
-            "services": {
-              "type": "SharedSlice"
-            },
-            "equipo": {
               "type": "SharedSlice"
             }
           }
